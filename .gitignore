@@ -1,0 +1,7 @@
+.venv/
+.env
+*.pt
+weights/
+dataset_poa_mapillary/
+__pycache__/
+.ruff_cache/

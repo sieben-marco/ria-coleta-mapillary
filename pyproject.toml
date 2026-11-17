@@ -1,0 +1,39 @@
+[project]
+name = "coleta-mapillary"
+version = "0.1.0"
+description = "Pipeline de coleta e triagem de imagens urbanas do Mapillary para detecção e segmentação de fiação em postes de Porto Alegre (RS)"
+requires-python = ">=3.12"
+dependencies = [
+    "clip @ git+https://github.com/ultralytics/CLIP.git",
+    "pandas>=3.1.1",
+    "python-dotenv>=1.2.4",
+    "requests>=2.34.2",
+    "torch>=2.15.0",
+    "torchvision>=0.29.2",
+    "ultralytics>=8.4.215",
+]
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cpu", marker = "sys_platform == 'linux'" },
+]
+torchvision = [
+  { index = "pytorch-cpu", marker = "sys_platform == 'linux'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.5",
+]
